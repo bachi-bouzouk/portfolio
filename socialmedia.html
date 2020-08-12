@@ -58,9 +58,6 @@
 			</div>
 			<div class="row no-gutters">
 				<div class="col-sm">
-					<iframe src="https://open.spotify.com/embed/playlist/18zrHLbFiDGmEda4eRyMAU" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-				</div>
-				<div class="col-sm">
 					<iframe src="https://open.spotify.com/embed/playlist/6S4OvtuKrl4umsaNaTvoD0" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 				</div>
 				<div class="col-sm">
@@ -72,29 +69,20 @@
 	</section>
 
 	<section>
-			<div class="container">
-				<div id="login">
-					<h1>This is an example of the Authorization Code flow</h1>
-					<button class="btn btn-primary" id="login">Don't see anything? Log in!</button>
-					<a href="/logout" class="btn btn-secondary">Logout</a>
-					<div id="data-container">
-						<ol>
-							<!-- This is where we will append our data -->
-						</ol>
-					</div>
+		<div class="container">
+			<div id="login">
+				<h1>This is an example of the Authorization Code flow</h1>
+				<button class="btn btn-primary" id="login">Log in!</button>
+				<a href="/logout" class="btn btn-secondary">Logout</a>
+				<div id="data-container">
 				</div>
 			</div>
+		</div>
 
-			<!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="/client.js"></script>
-
-
-			<h2>Spotify Web Playback SDK</h2>
-			<h3>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
+		<h2>Spotify Web Playback SDK</h2>
+		<h3>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
 			// playback sdk start here
+			<!--
 			<script src="https://sdk.scdn.co/spotify-player.js"></script>
 			<script>
 				app.get('/login', function(req, res) {
@@ -158,8 +146,7 @@
 					// Connect to the player!
 					player.connect();
 				};
-
-			</script>
+			</script> -->
 	</section>
 
 
@@ -180,150 +167,16 @@
 			</div>
 		</div>
 
+
 		<!-- integration 1 -->
 		<!-- third party plugin limited in view  - papaoutes -->
 		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 		<div class="elfsight-app-e1cc18a5-a3f1-4eab-a1d2-37e87b9c5bf6"></div>
 
-		<!-- integration 2-->
-		<!-- embed code from post - single post integration -->
-		<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CCTNCt1AZVx/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="12"
-			style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-			<div style="padding:16px;"> <a href="https://www.instagram.com/p/CCTNCt1AZVx/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
-					target="_blank">
-					<div style=" display: flex; flex-direction: row; align-items: center;">
-						<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div>
-						<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
-							<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div>
-							<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div>
-						</div>
-					</div>
-					<div style="padding: 19% 0;"></div>
-					<div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								<g transform="translate(-511.000000, -20.000000)" fill="#000000">
-									<g>
-										<path
-											d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
-										</path>
-									</g>
-								</g>
-							</g>
-						</svg></div>
-					<div style="padding-top: 8px;">
-						<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div>
-					</div>
-					<div style="padding: 12.5% 0;"></div>
-					<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
-						<div>
-							<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div>
-							<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div>
-							<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div>
-						</div>
-						<div style="margin-left: 8px;">
-							<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div>
-							<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div>
-						</div>
-						<div style="margin-left: auto;">
-							<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div>
-							<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div>
-							<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div>
-						</div>
-					</div>
-					<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
-						<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div>
-						<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div>
-					</div>
-				</a>
-				<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a
-						href="https://www.instagram.com/p/CCTNCt1AZVx/?utm_source=ig_embed&amp;utm_campaign=loading"
-						style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by National Geographic Travel (@natgeotravel)</a> on <time
-						style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2020-07-06T12:07:49+00:00">Jul 6, 2020 at 5:07am PDT</time></p>
-			</div>
-		</blockquote>
-		<script async src="//www.instagram.com/embed.js"></script>
-
-		<!-- integration 3 -->
-		<!-- manual with backup links to insta -->
-		<div class="container">
-			<div id="instagram-feed-demo" class="instagram_feed">
-				<h2 style="text-align: center;">Instagram Gallery</h2>
-				<div class="instagram_profile" style="text-align:center;"> <img class="instagram_profile_image"
-						src="https://scontent-cdt1-1.cdninstagram.com/v/t51.2885-19/s150x150/41771000_242905543051393_77000452855562240_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com&amp;_nc_ohc=siB5FR0kTyAAX9xoS6V&amp;oh=100096fee154809d03e5900a4e87b0d4&amp;oe=5F2C8DB0"
-						alt="instagram profile pic" style="border-radius:10em;width:15%;max-width:125px;min-width:50px;">
-					<p class="instagram_username" style="font-size:1.2em;">@Instagram (<a href="https://www.instagram.com/malek_ptilu/">@malek_ptilu</a>)</p>
-					<p class="instagram_biography" style="font-size:1em;"></p>
-				</div>
-				<div class="instagram_gallery"><a href="https://www.instagram.com/p/CCHKANJqHwT/" target="_blank"> <img
-							src="https://scontent-cdt1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/106066188_120677149402849_8342324505316473259_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=rpzE3J-0vfkAX_xywD5&amp;oh=9aa6291066e1728c866934f76c8b1dcd&amp;oe=5F2DF18F"
-							alt="instagram instagram image 0" style="margin:1% 1%;width:23%;height:23%;float:left;"></a><a href="https://www.instagram.com/p/BoPXjw-BpgE/" target="_blank"> <img
-							src="https://scontent-cdg2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/41370646_196264301154599_6719153753053286188_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&amp;_nc_cat=111&amp;_nc_ohc=PF0NsoeWwFsAX8TGYVu&amp;oh=872986cba508c962b329445a586c7c56&amp;oe=5F2AD1D3"
-							alt="instagram instagram image 1" style="margin:1% 1%;width:23%;height:23%;float:left;"></a><a href="https://www.instagram.com/p/B6_brk6IpMA/" target="_blank"> <img
-							src="https://scontent-cdg2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/79821341_559837084745255_100912114555889633_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&amp;_nc_cat=111&amp;_nc_ohc=wTA3a0_rE5oAX9Z5rGA&amp;oh=fe46f02e71c6a5f2df991c294cc565ba&amp;oe=5F2D1128"
-							alt="instagram instagram image 2" style="margin:1% 1%;width:23%;height:23%;float:left;"></a><a href="https://www.instagram.com/p/B4aoY6zICtS/" target="_blank"> <img
-							src="https://scontent-cdt1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75333936_163457114716294_3124506282649828159_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=2A7xRwCsNQIAX-FSn8S&amp;oh=291fb41a7c4163e8d3f0f8fe6fbb15e4&amp;oe=5F2B7288"
-							alt="instagram instagram image 3" style="margin:1% 1%;width:23%;height:23%;float:left;"></a><a href="https://www.instagram.com/p/B2sATJBISSt/" target="_blank"> <img
-							src="https://scontent-cdt1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/70250055_430975401109665_8992952578055800186_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com&amp;_nc_cat=109&amp;_nc_ohc=R410MUZivDgAX8DlvH-&amp;oh=2b709446ff2a2c3828bdd6c593150d8a&amp;oe=5F2ACCAA"
-							alt="instagram instagram image 4" style="margin:1% 1%;width:23%;height:23%;float:left;"></a><a href="https://www.instagram.com/p/B2n6MbOoERr/" target="_blank"> <img
-							src="https://scontent-cdg2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/69152522_1609516142517168_6472794437429901516_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&amp;_nc_cat=100&amp;_nc_ohc=0vGTc7vp3mwAX9viIRV&amp;oh=208ac7e9f544d57c601b6b5d7b10638b&amp;oe=5F2E8727"
-							alt="instagram instagram image 5" style="margin:1% 1%;width:23%;height:23%;float:left;"></a><a href="https://www.instagram.com/p/B2C3gipodRG/" target="_blank"> <img
-							src="https://scontent-cdg2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/70154124_139694890597340_650528414049441922_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&amp;_nc_cat=108&amp;_nc_ohc=brzMm3yzxR0AX-UWKW9&amp;oh=8995cbce00133874bf123e66934dda56&amp;oe=5F2C9088"
-							alt="instagram instagram image 6" style="margin:1% 1%;width:23%;height:23%;float:left;"></a><a href="https://www.instagram.com/p/BwjrL3ehydb/" target="_blank"> <img
-							src="https://scontent-cdt1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/56622612_186688098967102_7347799887612925777_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=y4ZPDq5SoBoAX9F4plW&amp;oh=597f162e335b8ca81ba22942ccad4bd5&amp;oe=5F2C9F11"
-							alt="instagram instagram image 7" style="margin:1% 1%;width:23%;height:23%;float:left;"></a></div>
-			</div>
-		</div>
-
-		<!-- integration 4 -->
-		<div class="container">
-			<div id="instagram-feed-demo" class="instagram_feed">
-				<script src="dist/InstagramFeed.min.js"></script>
-				<script>
-					(function() {
-						new InstagramFeed({
-							'username': 'malek_ptilu',
-							'container': document.getElementById("instagram-feed1"),
-							'display_profile': true,
-							'display_biography': true,
-							'display_gallery': true,
-							'callback': null,
-							'styling': true,
-							'items': 8,
-							'items_per_row': 4,
-							'margin': 1,
-							'lazy_load': true
-						});
-					})();
-				</script>
-			</div>
-		</div>
-		<p><br><br></p>
 	</section>
-
 
 	<!-- Map -->
-	<section>
-		<div class="container">
-			<div class="content-section-heading text-center">
-				<h1 class="text-secondary mb-0">Google Maps</h1>
-				<p><br></p>
-				<h2 class="mb-5">
 
-				</h2>
-			</div>
-			<div class="container-fluid p-0">
-				<div class="map">
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m76!1m12!1m3!1d12202344.543298816!2d-129.9283095813811!3d41.6970354457088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m61!3e0!4m5!1s0x54871b76412f0ef7%3A0xfbfe029c785f8338!2sGaribaldi%2C%20BC%2C%20Canada!3m2!1d49.971041!2d-123.142923!4m5!1s0x548673f143a94fb3%3A0xbb9196ea9b81f38b!2sVancouver%2C%20BC%2C%20Canada!3m2!1d49.2827291!2d-123.12073749999999!4m5!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA%2C%20USA!3m2!1d47.6062095!2d-122.3320708!4m5!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR%2C%20USA!3m2!1d45.505106399999995!2d-122.6750261!4m5!1s0x54cf7c5b37361f6d%3A0x7db736c5541136e!2sMedford%2C%20OR%2C%20USA!3m2!1d42.326515199999996!2d-122.8755949!4m5!1s0x54d291d63b4a202f%3A0x1f3358ec7b360f57!2sRedding%2C%20CA%2C%20USA!3m2!1d40.586539599999995!2d-122.3916754!4m5!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!3m2!1d37.7749295!2d-122.4194155!4m5!1s0x80e914c76f2d83d5%3A0xc8d13a64d7ba7648!2sSanta%20Barbara%2C%20CA%2C%20USA!3m2!1d34.4208305!2d-119.69819009999999!4m5!1s0x80e81da9f908d63f%3A0x93b72d71b2ea8c5a!2sMalibu%2C%20CA%2C%20USA!3m2!1d34.0259216!2d-118.7797571!4m5!1s0x80c2a4cec2910019%3A0xb4170ab5ff23f5ab!2sSanta%20Monica%2C%20CA%2C%20USA!3m2!1d34.0194543!2d-118.49119119999999!5e0!3m2!1sen!2sfr!4v1593185401791!5m2!1sen!2sfr"
-						width="1200" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-					<br />
-					<small>
-						<a href=""></a>
-					</small>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- Bootstrap core JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -331,7 +184,7 @@
 	<!-- Third party plugin JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+	<!--<script src="js/scripts.js"></script>-->
 
 </body>
 
