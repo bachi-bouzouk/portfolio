@@ -29,16 +29,16 @@
         "url": "https://github.com/StartBootstrap/startbootstrap-stylish-portfolio.git"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "5.13.1",
-        "bootstrap": "4.5.0",
+        "@fortawesome/fontawesome-free": "5.15.1",
+        "bootstrap": "4.5.3",
         "jquery": "^3.5.1",
         "jquery.easing": "^1.4.1",
-        "simple-line-icons": "^2.4.1",
-        "spotify-web-api-node": "^4.0.0"
+        "simple-line-icons": "^2.5.5",
+        "spotify-web-api-node": "^5.0.0"
     },
     "devDependencies": {
-        "browser-sync": "2.26.7",
-        "del": "5.1.0",
+        "browser-sync": "2.26.13",
+        "del": "6.0.0",
         "gulp": "4.0.2",
         "gulp-autoprefixer": "7.0.1",
         "gulp-clean-css": "4.3.0",
