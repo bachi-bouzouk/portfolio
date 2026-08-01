@@ -29,24 +29,25 @@
         "url": "https://github.com/StartBootstrap/startbootstrap-stylish-portfolio.git"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "5.15.1",
-        "bootstrap": "4.5.3",
-        "jquery": "^3.5.1",
+        "@fortawesome/fontawesome-free": "5.15.4",
+        "bootstrap": "4.6.2",
+        "jquery": "^3.7.1",
         "jquery.easing": "^1.4.1",
         "simple-line-icons": "^2.5.5",
-        "spotify-web-api-node": "^5.0.0"
+        "spotify-web-api-node": "^5.0.2"
     },
     "devDependencies": {
-        "browser-sync": "2.27.11",
-        "del": "6.0.0",
+        "browser-sync": "2.29.3",
+        "del": "6.1.1",
         "gulp": "4.0.2",
         "gulp-autoprefixer": "7.0.1",
         "gulp-clean-css": "4.3.0",
-        "gulp-header": "2.0.9",
+        "gulp-header": "2.0.12",
         "gulp-plumber": "^1.2.1",
-        "gulp-rename": "2.0.0",
-        "gulp-sass": "4.1.0",
+        "gulp-rename": "2.1.0",
+        "gulp-sass": "^5.1.0",
         "gulp-uglify": "3.0.2",
-        "merge-stream": "2.0.0"
+        "merge-stream": "2.0.0",
+        "sass": "^1.102.0"
     }
 }

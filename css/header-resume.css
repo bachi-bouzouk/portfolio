@@ -46,7 +46,8 @@
 
    @media (pointer: coarse) and (hover: none) {
      header {
-       background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+       background: url('../img/bg-masthead.jpg') black no-repeat center center scroll;
+       background-size: cover;
      }
      header video {
        display: none;
