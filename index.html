@@ -1,327 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abdel-Malek Imokrane — Control Command Engineer</title>
+<meta name="description" content="Embedded systems, power electronics and control command engineer. Resume, photo catalog and social feed." />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/control-loop.css" />
+<style>
+  /* ---------- Hero / console ---------- */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .scope-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 92%);
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 92%);
+    opacity: 0.9;
+  }
+  canvas#scope { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.9; }
+  .hero-inner { position: relative; z-index: 2; padding: clamp(64px, 10vw, 40px) clamp(20px, 4vw, 56px) 40px; }
+  .hero-eyebrow {
+    font-family: 'Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--trace); margin-bottom: 18px;
+  }
+  .hero-eyebrow b { color: var(--accent); font-weight: 600; }
+  h1.name { font-size: clamp(3.2rem, 11vw, 8.4rem); line-height: 0.86; margin: 0 0 22px; }
+  h1.name .last { color: var(--accent); }
+  .hero-tagline {
+    font-family: 'Plex', sans-serif; font-weight: 400; font-size: clamp(1.05rem, 2vw, 1.35rem);
+    color: var(--ink-dim); max-width: 46ch; margin-bottom: 34px;
+  }
+  .hero-tagline em { font-style: italic; color: var(--ink); }
+  .readout {
+    display: flex; flex-wrap: wrap; gap: 10px 28px;
+    font-family: 'Plex Mono', monospace; font-size: 12.5px; color: var(--ink-dim); letter-spacing: 0.02em;
+    border-top: 1px solid var(--line); padding-top: 18px;
+  }
+  .readout span b { color: var(--ink); font-weight: 500; }
+  .readout .live { color: var(--accent); }
+  .live-dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); margin-right: 6px;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+    50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 0%, transparent); }
+  }
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="bachi-bouzouk">
+  /* ---------- Routes (hub tiles) ---------- */
+  .routes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  a.route {
+    background: var(--surface); padding: 28px 24px 26px; position: relative;
+    text-decoration: none; color: var(--ink);
+    display: flex; flex-direction: column; min-height: 232px;
+    transition: background .18s ease;
+  }
+  a.route:hover, a.route:focus-visible { background: var(--surface-2); outline: none; }
+  a.route:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+  .route-ch { font-family: 'Plex Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.1em; display: flex; justify-content: space-between; align-items: center; }
+  .route-arrow { font-size: 15px; transition: transform .18s ease; }
+  a.route:hover .route-arrow { transform: translate(3px,-3px); }
+  .route canvas { width: 100%; height: 46px; display: block; margin: 16px 0 14px; }
+  .route h3 { font-size: 1.28rem; margin: 0 0 8px; text-transform: none; letter-spacing: 0; }
+  .route p { color: var(--ink-dim); font-size: 0.92rem; margin: 0; flex: 1; }
+  .route .route-meta { font-family: 'Plex Mono', monospace; font-size: 10.5px; color: var(--trace); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 14px; }
 
-  <title>Stylish Portfolio - Start Bootstrap Template</title>
-
-  <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom Fonts -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="css/stylish-portfolio.min.css" rel="stylesheet">
-
+  @media (max-width: 880px) { .routes { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .routes { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+</style>
 </head>
+<body>
 
-<body id="page-top">
+<nav class="nav">
+  <a class="nav-id" href="index.html">AMI<span>_</span>CTRL</a>
+  <ul class="nav-links">
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="catalog.html">Catalog</a></li>
+    <li><a href="socialmedia.html">Social</a></li>
+    <li><a href="mailto:malek.imokrane@gmail.com">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+</nav>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <div class="container">
-      <svg width="160" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-       <g class="layer">
-        <title>Layer 1</title>
-        <text font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Serif" font-size="34" id="svg_1" y="35.1" x="72.29688" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#fed136"></text>
-       </g>
-      </svg>
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      </a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars ml-1"></i>
-      </button>
-
-      <div class="navbar-collapse collapse" id="navbarResponsive">
-        <ul class="navbar-nav ext-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#page-top">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
+<header class="hero">
+  <div class="scope-grid"></div>
+  <canvas id="scope"></canvas>
+  <div class="hero-inner wrap">
+    <div class="hero-eyebrow"><b>●</b>&nbsp; Electrical Architecture / Hydrogen Systems / Control Command</div>
+    <h1 class="name">ABDEL<br>MALEK<br><span class="last">IMOKRANE</span></h1>
+    <p class="hero-tagline">I architect and control the systems that turn hydrogen into propulsion — <em>from electrical safety architecture to the control laws running in the loop.</em></p>
+    <div class="readout">
+      <span>LOC <b>Vanves, FR</b></span>
+      <span>ROLE <b>Senior Embedded Systems Engineer</b></span>
+      <span>NOW <b>R&amp;D Expleo — Hydrogen Propulsion Systems</b></span>
+      <span class="live"><span class="live-dot"></span>OPEN TO NEW SIGNAL</span>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <!-- Header -->
-  <header class="masthead d-flex">
-    <div class="container text-center my-auto">
-      <h1 class="mb-1">Welcome to Portfolio</h1>
-      <h3 class="mb-5">
-        <em>by Abdel-Malek Imokrane</em>
-      </h3>
-      <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
-    </div>
-    <div class="overlay"></div>
-  </header>
-
-  <!-- About -->
-  <section class="content-section bg-light" id="about">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <h2>Portfolio is a personal website designed to develop and experiment with new web design practices through my personal interests and projects.</h2>
-          <p class="lead mb-5"></p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">My values</a>
+<main>
+  <section id="routes">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 — Routes</div>
+          <h2 style="margin-top:14px;">Pick a channel</h2>
         </div>
+        <div class="section-note">One signal, four outputs — choose where it goes next.</div>
       </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="content-section bg-primary text-white text-center" id="services">
-    <div class="container">
-      <div class="content-section-heading">
-        <h3 class="text-secondary mb-0">Services</h3>
-        <h2 class="mb-5">Values</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-screen-smartphone"></i>
-          </span>
-          <h4>
-            <strong>Commitment</strong>
-          </h4>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-pencil"></i>
-          </span>
-          <h4>
-            <strong>Adaptability</strong>
-          </h4>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-like"></i>
-          </span>
-          <h4>
-            <strong>Leadership</strong>
-          </h4>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-mustache"></i>
-          </span>
-          <h4>
-            <strong>Challenge</strong>
-          </h4>
-        </div>
+      <div class="routes">
+        <a class="route" href="resume.html">
+          <div class="route-ch">CH.01 <span class="route-arrow">↗</span></div>
+          <canvas class="d-canvas" data-kind="step"></canvas>
+          <h3>Resume</h3>
+          <p>The full field log — roles, tooling, and the education underneath them.</p>
+          <div class="route-meta">Updated 2026</div>
+        </a>
+        <a class="route" href="catalog.html">
+          <div class="route-ch">CH.02 <span class="route-arrow">↗</span></div>
+          <canvas class="wp-canvas" data-seed="7" data-hue="200"></canvas>
+          <h3>Photo Catalog</h3>
+          <p>Five trips, five traces — Norway to the Pacific coast, logged off-shift.</p>
+          <div class="route-meta">5 galleries</div>
+        </a>
+        <a class="route" href="socialmedia.html">
+          <div class="route-ch">CH.03 <span class="route-arrow">↗</span></div>
+          <canvas class="d-canvas" data-kind="bars"></canvas>
+          <h3>Social &amp; Music</h3>
+          <p>What's currently on rotation, pulled live from a top-tracks feed.</p>
+          <div class="route-meta">Live feed</div>
+        </a>
+        <a class="route" href="mailto:malek.imokrane@gmail.com">
+          <div class="route-ch">CH.04 <span class="route-arrow">↗</span></div>
+          <canvas class="d-canvas" data-kind="square"></canvas>
+          <h3>Contact</h3>
+          <p>Direct line, no form to fill — a reply usually beats a submission.</p>
+          <div class="route-meta">malek.imokrane@gmail.com</div>
+        </a>
       </div>
     </div>
   </section>
+</main>
 
-  <!-- Callout -->
-  <section class="callout">
-    <div class="container text-center">
-      <h2 class="mx-auto mb-5">Let's boot
-        <em>your</em>
-        next project!</h2>
-    </div>
-  </section>
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 ABDEL-MALEK IMOKRANE</div>
+    <ul class="foot-links">
+      <li><a href="https://www.linkedin.com/in/malekimokrane/">LinkedIn</a></li>
+      <li><a href="https://github.com/bachi-bouzouk?tab=repositories">GitHub</a></li>
+      <li><a href="https://www.instagram.com/malek_ptilu/">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
 
-  <!-- Portfolio -->
-  <section class="content-section" id="portfolio">
-    <div class="container">
-      <div class="content-section-heading text-center">
-        <h3 class="text-secondary mb-0">Portfolio</h3>
-        <h2 class="mb-5">Projects</h2>
-      </div>
-      <div class="row no-gutters">
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="./resume.html" target="_blank">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Web Resume</div>
-                <p class="mb-0">A complete and design resume.</p>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/resume.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="./socialmedia.html" target="_blank">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Social Media</div>
-                <p class="mb-0">Interact with your media platforms.</p>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/socialmedia.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="./northAmericanWestCoast.html" target="_blank">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">North American West Coast</div>
-                <p class="mb-0">From B.C to California</p>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/usa-westcoast.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="./easterncanada.html" target="_blank">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Eastern Canada</div>
-                <p class="mb-0">...</p>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/mtl.jpg" width="700" height="467" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="./benelux.html" target="_blank">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Benelux</div>
-                <p class="mb-0"> ... </p>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/benelux.jpg" width="700" height="467" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="./coming-soon.html" target="_blank">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Norway</div>
-                <p class="mb-0">Planning Trip.</p>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/norway.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="coming-soon.html" target="_blank">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Greenland</div>
-                <p class="mb-0">Planning Trip.</p>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/greenland.jpg" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+<script src="js/control-loop.js"></script>
+<script>
+(function(){
+  var root = document.documentElement;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  <!-- Contact -->
-  <section id="contact" class="content-section bg-primary text-white">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Let's Get In Touch!</h2>
-          <hr class="divider my-4" />
-          <p class="mb-4">Ready to start your next project with us? Send an email and I'll get back to you as soon as possible!</p>
-        </div>
-      </div>
-      <form id="contactForm" name="sentMessage" novalidate="novalidate">
-        <div class="row align-items-stretch mb-5">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name." />
-              <p class="help-block text-danger"></p>
-            </div>
-            <div class="form-group">
-              <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address." />
-              <p class="help-block text-danger"></p>
-            </div>
-            <div class="form-group mb-md-0">
-              <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." />
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group form-group-textarea mb-md-0">
-              <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-        </div>
-        <div class="text-center">
-          <div id="success"></div>
-          <button class="btn btn-xl btn-light mr-4" id="sendMessageButton" type="submit">Send Message</button>
-        </div>
-      </form>
-    </div>
-</section>
+  function sizeCanvas(c){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = c.getBoundingClientRect();
+    c.width = Math.max(1, r.width * dpr);
+    c.height = Math.max(1, r.height * dpr);
+    return dpr;
+  }
 
-<!-- Map -->
-<div class="map">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10507.728786372583!2d2.278096281474625!3d48.82135511691354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6706369cb4fdb%3A0x40b82c3688b3cd0!2sVanves!5e0!3m2!1sen!2sfr!4v1593171157866!5m2!1sen!2sfr"
-    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-  <br />
-  <small>
-    <a href=""></a>
-  </small>
-</div>
+  // ---- hero scope: step-response trace ----
+  var scope = document.getElementById('scope');
+  var ctx = scope.getContext('2d');
+  var dpr = sizeCanvas(scope);
 
-  <!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="https://www.linkedin.com/in/malekimokrane/">
-            <i class="icon-social-linkedin"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="https://github.com/bachi-bouzouk?tab=repositories">
-            <i class="icon-social-github"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="https://www.instagram.com/malek_ptilu/">
-            <i class="icon-social-instagram"></i>
-          </a>
-        </li>
-      </ul>
-      <p class="text-muted small mb-0">Copyright &copy; Imokrane - 2020</p>
-    </div>
-  </footer>
+  function stepResponse(t, zeta, wn){
+    if (zeta >= 1) return 1 - Math.exp(-wn*t);
+    var wd = wn * Math.sqrt(1 - zeta*zeta);
+    var phi = Math.acos(zeta);
+    return 1 - (Math.exp(-zeta*wn*t) / Math.sqrt(1-zeta*zeta)) * Math.sin(wd*t + phi);
+  }
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+  var progress = reduced ? 1 : 0;
+  function drawScope(){
+    var w = scope.width, h = scope.height;
+    ctx.clearRect(0,0,w,h);
+    var accent = getComputedStyle(root).getPropertyValue('--accent').trim();
+    var trace = getComputedStyle(root).getPropertyValue('--trace').trim();
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Contact form JS-->
-  <script src="assets/mail/jqBootstrapValidation.js"></script>
-  <script src="assets/mail/contact_me.js"></script>
-  <!-- Custom scripts for this template -->
-  <script src="js/stylish-portfolio.min.js"></script>
+    var midY = h * 0.62;
+    var amp = h * 0.30;
+    var xPad = w * 0.06;
+    var span = w - xPad*2;
+    var tMax = 9;
 
+    ctx.strokeStyle = trace; ctx.globalAlpha = 0.35; ctx.lineWidth = 1*dpr;
+    ctx.setLineDash([2*dpr,5*dpr]);
+    ctx.beginPath(); ctx.moveTo(xPad, midY - amp); ctx.lineTo(w - xPad, midY - amp); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+
+    var pts = 300;
+    var visible = Math.floor(pts * progress);
+    ctx.strokeStyle = accent;
+    ctx.lineWidth = 2.4 * dpr;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.shadowColor = accent; ctx.shadowBlur = 10*dpr;
+    ctx.beginPath();
+    for (var i=0;i<=visible;i++){
+      var t = (i/pts) * tMax;
+      var y = stepResponse(t, 0.28, 1.15);
+      var px = xPad + (i/pts) * span;
+      var py = midY - y*amp;
+      if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+    }
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    if (visible > 0 && visible <= pts){
+      var t = (visible/pts) * tMax;
+      var y = stepResponse(t, 0.28, 1.15);
+      var px = xPad + (visible/pts) * span;
+      var py = midY - y*amp;
+      ctx.fillStyle = accent;
+      ctx.beginPath(); ctx.arc(px, py, 3.2*dpr, 0, Math.PI*2); ctx.fill();
+    }
+  }
+
+  function animate(){
+    if (progress < 1){
+      progress += 0.008;
+      if (progress > 1) progress = 1;
+      drawScope();
+      requestAnimationFrame(animate);
+    } else {
+      drawScope();
+    }
+  }
+  drawScope();
+  if (!reduced) requestAnimationFrame(animate);
+
+  window.addEventListener('resize', function(){ dpr = sizeCanvas(scope); drawScope(); });
+  document.addEventListener('control-loop:theme-changed', drawScope);
+  new MutationObserver(drawScope).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // ---- route mini canvases ----
+  document.querySelectorAll('.d-canvas').forEach(function(c){
+    var dp = sizeCanvas(c);
+    var cx = c.getContext('2d');
+    function draw(){
+      var w = c.width, h = c.height;
+      cx.clearRect(0,0,w,h);
+      var accent = getComputedStyle(root).getPropertyValue('--accent').trim();
+      var trace = getComputedStyle(root).getPropertyValue('--trace').trim();
+      var kind = c.dataset.kind;
+
+      if (kind === 'bars'){
+        var bars = 28;
+        var gap = w * 0.012;
+        var bw = (w - gap*(bars-1)) / bars;
+        for (var b=0; b<bars; b++){
+          var bx = b/bars;
+          var amp = Math.abs(Math.sin(bx*Math.PI*3.2)) * 0.55 + Math.abs(Math.sin(bx*11 + 1.3)) * 0.35;
+          amp = Math.min(amp, 1);
+          var bh = Math.max(h*0.08, amp*h*0.92);
+          cx.fillStyle = (b % 5 === 0) ? accent : trace;
+          cx.globalAlpha = (b % 5 === 0) ? 1 : 0.55;
+          cx.fillRect(b*(bw+gap), (h-bh)/2, bw, bh);
+        }
+        cx.globalAlpha = 1;
+        return;
+      }
+
+      cx.strokeStyle = trace; cx.globalAlpha = 0.4; cx.lineWidth = 1*dp;
+      cx.beginPath(); cx.moveTo(0, h*0.5); cx.lineTo(w, h*0.5); cx.stroke();
+      cx.globalAlpha = 1;
+      cx.strokeStyle = accent; cx.lineWidth = 2*dp; cx.lineCap='round'; cx.lineJoin='round';
+      cx.beginPath();
+      var n = 160;
+      for (var i=0;i<=n;i++){
+        var x = i/n;
+        var y;
+        if (kind === 'square'){
+          y = (Math.floor(x*6) % 2 === 0) ? 0.22 : 0.78;
+        } else if (kind === 'step'){
+          var t = x*8;
+          y = 1 - Math.exp(-0.9*t) * Math.cos(1.6*t)*0.8;
+          y = 0.9 - Math.min(Math.max(y,0),1.6)*0.45;
+        } else {
+          y = 0.5 + Math.sin(x*Math.PI*4) * Math.exp(-x*0.6) * 0.4;
+        }
+        var px = x*w, py = y*h;
+        if (i===0) cx.moveTo(px,py); else cx.lineTo(px,py);
+      }
+      cx.stroke();
+    }
+    draw();
+    document.addEventListener('control-loop:theme-changed', draw);
+    new MutationObserver(draw).observe(root, { attributes:true, attributeFilter:['data-theme'] });
+  });
+
+  // ---- waypoint elevation trace (seeded) ----
+  function mulberry32(a){
+    return function(){
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  document.querySelectorAll('.wp-canvas').forEach(function(c){
+    var dp = sizeCanvas(c);
+    var cx = c.getContext('2d');
+    var seed = parseInt(c.dataset.seed || '1', 10) * 999331;
+    var hue = c.dataset.hue || '200';
+    var rand = mulberry32(seed);
+    function draw(){
+      var w = c.width, h = c.height;
+      cx.clearRect(0,0,w,h);
+      var isLight = (root.getAttribute('data-theme') === 'light') ||
+        (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: light)').matches);
+      var bgA = isLight ? 0.14 : 0.22;
+      var grad = cx.createLinearGradient(0,0,0,h);
+      grad.addColorStop(0, 'hsla('+hue+',40%,'+(isLight?'70%':'30%')+','+bgA+')');
+      grad.addColorStop(1, 'hsla('+hue+',30%,'+(isLight?'60%':'18%')+',0)');
+      cx.fillStyle = grad;
+      cx.fillRect(0,0,w,h);
+
+      var layers = 3;
+      for (var L=0; L<layers; L++){
+        var amp = h * (0.10 + L*0.09);
+        var baseY = h * (0.55 + L*0.14);
+        var pts = 60;
+        cx.beginPath();
+        cx.moveTo(0, h);
+        for (var i=0;i<=pts;i++){
+          var x = i/pts;
+          var n = Math.sin(x*6 + L*2 + seed*0.001) * 0.5 + Math.sin(x*13 + L) * 0.3 + (rand()-0.5)*0.15;
+          var y = baseY - n*amp;
+          cx.lineTo(x*w, y);
+        }
+        cx.lineTo(w, h); cx.closePath();
+        cx.fillStyle = 'hsla('+hue+', '+(35 - L*5)+'%, '+(isLight ? (75 - L*12) : (26 + L*10))+'%, '+(isLight?0.55:0.85)+')';
+        cx.fill();
+
+        cx.beginPath();
+        for (var j=0;j<=pts;j++){
+          var xx = j/pts;
+          var n2 = Math.sin(xx*6 + L*2 + seed*0.001) * 0.5 + Math.sin(xx*13 + L) * 0.3 + (rand()-0.5)*0.15;
+          var yy = baseY - n2*amp;
+          if (j===0) cx.moveTo(xx*w, yy); else cx.lineTo(xx*w, yy);
+        }
+        cx.strokeStyle = 'hsla('+hue+', 60%, '+(isLight?45:70)+'%, '+(L===0?0.9:0.35)+')';
+        cx.lineWidth = (L===0?1.6:1)*dp;
+        cx.stroke();
+      }
+    }
+    draw();
+    document.addEventListener('control-loop:theme-changed', draw);
+    new MutationObserver(draw).observe(root, { attributes:true, attributeFilter:['data-theme'] });
+    window.addEventListener('resize', function(){ dp = sizeCanvas(c); draw(); });
+  });
+})();
+</script>
 </body>
-
 </html>
