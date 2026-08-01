@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photo Catalog — Abdel-Malek Imokrane</title>
+<meta name="description" content="Travel photo galleries — Benelux, Norway, Greenland, Eastern Canada, and the US West Coast." />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/control-loop.css" />
+<style>
+  .page-head { padding-top: clamp(48px, 8vw, 88px); }
+  .page-title { font-size: clamp(2.4rem, 7vw, 4.6rem); margin: 14px 0 18px; }
+  .page-sub { font-family: 'Plex', sans-serif; color: var(--ink-dim); font-size: 1.05rem; max-width: 56ch; }
+
+  .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  a.gcard {
+    position: relative; display: block; text-decoration: none; color: var(--ink);
+    background: var(--surface); min-height: 340px; overflow: hidden;
+  }
+  a.gcard img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .5s ease, filter .5s ease; }
+  a.gcard:hover img { transform: scale(1.045); }
+  a.gcard.is-draft img { filter: grayscale(0.85) brightness(0.55); }
+  a.gcard::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(6,9,13,0.92) 0%, rgba(6,9,13,0.35) 42%, rgba(6,9,13,0.05) 68%);
+  }
+  .gcard-meta { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px 22px 24px; }
+  .gcard-ch { font-family: 'Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.1em; color: var(--signal); display: flex; justify-content: space-between; }
+  .gcard-arrow { transition: transform .18s ease; }
+  a.gcard:hover .gcard-arrow { transform: translate(3px,-3px); }
+  .gcard h2 { color: #fff; font-size: 1.7rem; margin: 10px 0 6px; text-transform: none; letter-spacing: 0; }
+  .gcard p { color: rgba(255,255,255,0.72); font-size: 0.92rem; margin: 0; font-family: 'Plex', sans-serif; }
+  .gcard-status {
+    font-family: 'Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.8); margin-top: 12px; display: inline-flex; width: fit-content;
+    border: 1px solid rgba(255,255,255,0.35); padding: 3px 8px;
+  }
+  a.gcard.is-draft .gcard-status { color: var(--signal); border-color: var(--signal); }
+
+  @media (max-width: 880px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .catalog-grid { grid-template-columns: 1fr; }
+    a.gcard { min-height: 260px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-id" href="index.html">AMI<span>_</span>CTRL</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="catalog.html" aria-current="page">Catalog</a></li>
+    <li><a href="socialmedia.html">Social</a></li>
+    <li><a href="mailto:malek.imokrane@gmail.com">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+</nav>
+
+<header class="wrap page-head reveal">
+  <div class="eyebrow">Off the clock</div>
+  <h1 class="page-title">Photo Catalog</h1>
+  <p class="page-sub">Five trips, logged as five separate galleries. Two are still in progress — the rest are ready to browse.</p>
+</header>
+
+<main>
+  <section>
+    <div class="wrap reveal">
+      <div class="catalog-grid">
+
+        <a class="gcard" href="benelux.html">
+          <img src="img/benelux.jpg" alt="Benelux" loading="lazy" />
+          <div class="gcard-meta">
+            <div class="gcard-ch">CH.01 <span class="gcard-arrow">↗</span></div>
+            <h2>Benelux</h2>
+            <p>Netherlands, Belgium &amp; Luxembourg</p>
+            <span class="gcard-status">4 photos</span>
+          </div>
+        </a>
+
+        <a class="gcard" href="norway.html">
+          <img src="img/norway.jpg" alt="Norway" loading="lazy" />
+          <div class="gcard-meta">
+            <div class="gcard-ch">CH.02 <span class="gcard-arrow">↗</span></div>
+            <h2>Norway</h2>
+            <p>Fjords and the northern coast</p>
+            <span class="gcard-status">7 photos</span>
+          </div>
+        </a>
+
+        <a class="gcard" href="northAmericanWestCoast.html">
+          <img src="img/usa-westcoast.jpg" alt="US West Coast" loading="lazy" />
+          <div class="gcard-meta">
+            <div class="gcard-ch">CH.03 <span class="gcard-arrow">↗</span></div>
+            <h2>US West Coast</h2>
+            <p>From B.C. to California</p>
+            <span class="gcard-status">9 photos</span>
+          </div>
+        </a>
+
+        <a class="gcard is-draft" href="easterncanada.html">
+          <img src="img/mtl.jpg" alt="Eastern Canada" loading="lazy" />
+          <div class="gcard-meta">
+            <div class="gcard-ch">CH.04 <span class="gcard-arrow">↗</span></div>
+            <h2>Eastern Canada</h2>
+            <p>Québec &amp; the Maritimes</p>
+            <span class="gcard-status">Coming soon</span>
+          </div>
+        </a>
+
+        <a class="gcard is-draft" href="greenland.html">
+          <img src="img/greenland.jpg" alt="Greenland" loading="lazy" />
+          <div class="gcard-meta">
+            <div class="gcard-ch">CH.05 <span class="gcard-arrow">↗</span></div>
+            <h2>Greenland</h2>
+            <p>Arctic ice sheet</p>
+            <span class="gcard-status">Coming soon</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 ABDEL-MALEK IMOKRANE</div>
+    <ul class="foot-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="socialmedia.html">Social</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/control-loop.js"></script>
+</body>
+</html>
