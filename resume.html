@@ -13,8 +13,6 @@
   .profile-photo-wrap { position: relative; flex-shrink: 0; }
   .page-title { font-size: clamp(2.4rem, 6vw, 4rem); margin: 10px 0 12px; }
   .page-sub { font-family: 'Plex Mono', monospace; font-size: 13px; color: var(--ink-dim); letter-spacing: 0.02em; }
-  .page-sub a { color: var(--accent); text-decoration: none; }
-  .page-sub a:hover { text-decoration: underline; }
   .lead-copy { font-family: 'Plex', sans-serif; font-size: 1.02rem; color: var(--ink-dim); max-width: 68ch; margin: 22px 0 0; }
 
   .field-list { border-top: 1px solid var(--line); }
@@ -50,6 +48,10 @@
   .edu-note { grid-column: 1 / -1; color: var(--ink-dim); font-size: 0.9rem; margin: 4px 0 0; }
   .edu-date { font-family: 'Plex Mono', monospace; font-size: 12px; color: var(--trace); white-space: nowrap; }
 
+  /* Single heading per section: the orange eyebrow label, sized like the old h2 */
+  .section-head .eyebrow { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 900; }
+  .section-head .eyebrow::before { content: none; }
+
   @media (max-width: 640px) {
     .page-head { grid-template-columns: 1fr; }
     .field-item, .edu-item { grid-template-columns: 1fr; }
@@ -78,7 +80,7 @@
   <div>
     <div class="eyebrow">Field Log</div>
     <h1 class="page-title">Abdel-Malek Imokrane</h1>
-    <div class="page-sub">Vanves, 92170, France · (+33) 6 64 64 37 22 · <a href="mailto:malek.imokrane@gmail.com">malek.imokrane@gmail.com</a></div>
+    <div class="page-sub">Hauts-de-Seine, France</div>
     <p class="lead-copy">As an embedded system/software engineer, I was involved in the design of the most robust control commands in the energy and automobile industries. I'm driven by contributing to the development of the most efficient and smart systems, ensuring and maintaining best practices. I thrive in rapidly growing, innovative organisations and agile collaborative environments.</p>
   </div>
 </header>
@@ -90,7 +92,6 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">01 — Experience</div>
-          <h2 style="margin-top:14px;">Field log</h2>
         </div>
         <div class="section-note">Four roles, one thread: measure, model, control.</div>
       </div>
@@ -197,7 +198,6 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">02 — Education</div>
-          <h2 style="margin-top:14px;">Training</h2>
         </div>
       </div>
       <div class="edu-list">
@@ -227,7 +227,7 @@
         <div class="edu-item">
           <div>
             <div class="edu-role">Michelet High School</div>
-            <div class="edu-sub">High School Diploma</div>
+            <div class="edu-sub">High School Diploma — Scientific Track</div>
           </div>
           <div class="edu-date">Jul 2009</div>
         </div>
@@ -240,23 +240,17 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">03 — Skills</div>
-          <h2 style="margin-top:14px;">Tooling &amp; process</h2>
         </div>
       </div>
       <div class="panel" style="position:relative;">
         <span class="tick-bl"></span><span class="tick-br"></span>
-        <div class="skill-group-label">Programming languages &amp; tools</div>
+        <div class="skill-group-label">Languages &amp; tools</div>
         <ul class="skill-tags">
-          <li>MATLAB</li><li>Simulink</li><li>Stateflow</li><li>Capella</li><li>MagicDraw</li><li>dSpace</li><li>SpeedGoat</li>
+          <li>MATLAB</li><li>Simulink</li><li>Stateflow</li><li>Simscape</li><li>Capella</li><li>MagicDraw</li><li>dSpace</li><li>SpeedGoat</li><li>CANape</li><li>C</li><li>Python</li><li>Git</li><li>GitLab</li><li>Jenkins</li><li>Doors</li><li>Polarion</li><li>Jira</li>
         </ul>
-        <div class="skill-group-label">Workflow &amp; process</div>
-        <ul class="check-list">
-          <li>Agile Development / Scrum / Kanban</li>
-          <li>Verification and Validation process</li>
-          <li>Cross-functional teams</li>
-          <li>DevOps tools and processes</li>
-          <li>ASPICE, MBSE, AUTOSAR</li>
-          <li>Continuous Development &amp; Integration</li>
+        <div class="skill-group-label">Methods &amp; process</div>
+        <ul class="skill-tags" style="margin-bottom:0;">
+          <li>MBD</li><li>MBSE</li><li>MIL/HIL</li><li>CAN</li><li>UML/SysML</li><li>AUTOSAR</li><li>A-SPICE</li><li>INCOSE</li><li>MIL-STD</li><li>V-Model</li><li>Agile / Scrum / Kanban</li><li>Requirements Management</li><li>DevOps</li><li>Continuous Integration &amp; Delivery</li><li>Verification &amp; Validation</li><li>Cross-Functional Teams</li>
         </ul>
       </div>
     </div>
@@ -267,7 +261,6 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">04 — Interests</div>
-          <h2 style="margin-top:14px;">Off the clock</h2>
         </div>
       </div>
       <ul class="skill-tags" style="margin-bottom:0;">
@@ -281,7 +274,6 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">05 — Awards</div>
-          <h2 style="margin-top:14px;">Recognition</h2>
         </div>
       </div>
       <ul class="check-list">
