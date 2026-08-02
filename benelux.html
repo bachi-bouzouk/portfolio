@@ -4,15 +4,26 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Benelux — Abdel-Malek Imokrane</title>
-<meta name="description" content="Benelux photo gallery — in progress." />
+<meta name="description" content="Brussels and Luxembourg City — comic murals, the Atomium, and the old town." />
 <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 <link rel="stylesheet" href="css/control-loop.css" />
 <style>
-  .stub-wrap { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(48px, 8vw, 88px) 0; }
-  .stub-cover { width: 100%; max-width: 520px; aspect-ratio: 3/2; object-fit: cover; border: 1px solid var(--line); filter: grayscale(0.85) brightness(0.6); margin-bottom: 32px; }
-  .stub-title { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 16px; }
-  .stub-note { font-family: 'Plex', sans-serif; color: var(--ink-dim); max-width: 56ch; font-size: 1.02rem; }
-  .stub-status { font-family: 'Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; display: inline-block; margin-top: 20px; }
+  .page-head { padding-top: clamp(48px, 8vw, 88px); }
+  .page-title { font-size: clamp(2.4rem, 7vw, 4.6rem); margin: 14px 0 18px; }
+  .page-sub { font-family: 'Plex', sans-serif; color: var(--ink-dim); font-size: 1.05rem; max-width: 56ch; }
+
+  .shot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  a.shot { position: relative; display: block; text-decoration: none; color: var(--ink); background: var(--surface); aspect-ratio: 4/3; overflow: hidden; }
+  a.shot img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .5s ease; }
+  a.shot:hover img { transform: scale(1.05); }
+  a.shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,9,13,0.85) 0%, rgba(6,9,13,0.15) 45%, transparent 70%); }
+  .shot-meta { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px 18px 18px; }
+  .shot-ch { font-family: 'Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; color: var(--signal); }
+  .shot-meta h2 { color: #fff; font-size: 1.1rem; margin: 6px 0 0; text-transform: none; letter-spacing: 0; }
+  .shot-meta p { color: rgba(255,255,255,0.72); font-size: 0.82rem; margin: 2px 0 0; font-family: 'Plex Mono', monospace; }
+
+  @media (max-width: 880px) { .shot-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .shot-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -29,14 +40,95 @@
   <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
 </nav>
 
+<header class="wrap page-head reveal">
+  <div class="eyebrow">CH.02 — Photo Catalog</div>
+  <h1 class="page-title">Benelux</h1>
+  <p class="page-sub">Brussels and Luxembourg City — comic murals, the Atomium, and the old town on the Alzette.</p>
+</header>
+
 <main>
-  <div class="wrap stub-wrap reveal">
-    <div class="eyebrow">CH.02 — Photo Catalog</div>
-    <img class="stub-cover" src="img/benelux.jpg" alt="Benelux" />
-    <h1 class="stub-title">Benelux</h1>
-    <p class="stub-note">Netherlands, Belgium &amp; Luxembourg. This gallery hasn't been put together yet — the photo above is the only thing logged so far.</p>
-    <span class="stub-status">Coming soon</span>
-  </div>
+  <section>
+    <div class="wrap reveal">
+      <div class="shot-grid">
+
+        <a class="shot" href="img/benelux/01.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/01.jpg" alt="Palais de Justice at sunset" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">01</div><h2>Palais de Justice</h2><p>Brussels, Belgium</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/02.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/02.jpg" alt="Brussels Town Hall spire at night" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">02</div><h2>Town Hall by night</h2><p>Grand Place, Brussels</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/03.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/03.jpg" alt="Grand Place at night" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">03</div><h2>Grand Place at night</h2><p>Brussels, Belgium</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/07.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/07.jpg" alt="Brussels Town Hall by day" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">04</div><h2>Town Hall by day</h2><p>Grand Place, Brussels</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/05.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/05.jpg" alt="Lucky Luke comic mural" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">05</div><h2>Lucky Luke mural</h2><p>Comic Book Route, Brussels</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/04.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/04.jpg" alt="Asterix comic mural" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">06</div><h2>Asterix mural</h2><p>Comic Book Route, Brussels</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/06.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/06.jpg" alt="The Atomium" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">07</div><h2>The Atomium</h2><p>Brussels, Belgium</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/08.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/08.jpg" alt="Tintin figurine" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">08</div><h2>Tintin</h2><p>Brussels, Belgium</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/11.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/11.jpg" alt="Luxembourg City skyline at sunset" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">09</div><h2>Skyline at sunset</h2><p>Luxembourg City</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/12.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/12.jpg" alt="Luxembourg City skyline" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">10</div><h2>Old town skyline</h2><p>Luxembourg City</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/13.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/13.jpg" alt="Framed view of a church" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">11</div><h2>Framed view</h2><p>Luxembourg City</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/14.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/14.jpg" alt="River Alzette" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">12</div><h2>River Alzette</h2><p>Luxembourg City</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/15.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/15.jpg" alt="Beaufort Castle ruins" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">13</div><h2>Beaufort Castle</h2><p>Beaufort, Luxembourg</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/09.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/09.jpg" alt="Forest stream" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">14</div><h2>Forest stream</h2><p>Luxembourg</p></div>
+        </a>
+
+        <a class="shot" href="img/benelux/10.jpg" target="_blank" rel="noopener">
+          <img src="img/benelux/thumbs/10.jpg" alt="Meadow and river" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">15</div><h2>Riverside meadow</h2><p>Luxembourg</p></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
