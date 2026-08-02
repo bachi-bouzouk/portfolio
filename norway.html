@@ -4,15 +4,26 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Norway — Abdel-Malek Imokrane</title>
-<meta name="description" content="Norway photo gallery — in progress." />
+<meta name="description" content="Tromsø — fjords, the Arctic Cathedral, and midnight sun." />
 <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 <link rel="stylesheet" href="css/control-loop.css" />
 <style>
-  .stub-wrap { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(48px, 8vw, 88px) 0; }
-  .stub-cover { width: 100%; max-width: 520px; aspect-ratio: 3/2; object-fit: cover; border: 1px solid var(--line); filter: grayscale(0.85) brightness(0.6); margin-bottom: 32px; }
-  .stub-title { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 16px; }
-  .stub-note { font-family: 'Plex', sans-serif; color: var(--ink-dim); max-width: 56ch; font-size: 1.02rem; }
-  .stub-status { font-family: 'Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; display: inline-block; margin-top: 20px; }
+  .page-head { padding-top: clamp(48px, 8vw, 88px); }
+  .page-title { font-size: clamp(2.4rem, 7vw, 4.6rem); margin: 14px 0 18px; }
+  .page-sub { font-family: 'Plex', sans-serif; color: var(--ink-dim); font-size: 1.05rem; max-width: 56ch; }
+
+  .shot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  a.shot { position: relative; display: block; text-decoration: none; color: var(--ink); background: var(--surface); aspect-ratio: 4/3; overflow: hidden; }
+  a.shot img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .5s ease; }
+  a.shot:hover img { transform: scale(1.05); }
+  a.shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,9,13,0.85) 0%, rgba(6,9,13,0.15) 45%, transparent 70%); }
+  .shot-meta { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px 18px 18px; }
+  .shot-ch { font-family: 'Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; color: var(--signal); }
+  .shot-meta h2 { color: #fff; font-size: 1.1rem; margin: 6px 0 0; text-transform: none; letter-spacing: 0; }
+  .shot-meta p { color: rgba(255,255,255,0.72); font-size: 0.82rem; margin: 2px 0 0; font-family: 'Plex Mono', monospace; }
+
+  @media (max-width: 880px) { .shot-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .shot-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -29,14 +40,95 @@
   <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
 </nav>
 
+<header class="wrap page-head reveal">
+  <div class="eyebrow">CH.03 — Photo Catalog</div>
+  <h1 class="page-title">Norway</h1>
+  <p class="page-sub">Tromsø, under the midnight sun — harbour, fjord, and the climb up Fløya.</p>
+</header>
+
 <main>
-  <div class="wrap stub-wrap reveal">
-    <div class="eyebrow">CH.03 — Photo Catalog</div>
-    <img class="stub-cover" src="img/norway.jpg" alt="Norway" />
-    <h1 class="stub-title">Norway</h1>
-    <p class="stub-note">Fjords and the northern coast. This gallery hasn't been put together yet — the photo above is the only thing logged so far.</p>
-    <span class="stub-status">Coming soon</span>
-  </div>
+  <section>
+    <div class="wrap reveal">
+      <div class="shot-grid">
+
+        <a class="shot" href="img/norway/01.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/01.jpg" alt="Fjord at midnight sun" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">01</div><h2>Fjord at midnight sun</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/02.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/02.jpg" alt="Tromsø harbour at dusk" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">02</div><h2>Harbour at dusk</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/03.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/03.jpg" alt="Tromsø harbour, snow-capped mountains" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">03</div><h2>Harbour &amp; peaks</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/04.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/04.jpg" alt="Tromsø harbour at dusk" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">04</div><h2>Harbour at dusk</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/05.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/05.jpg" alt="Sailboat and MS Polarlys" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">05</div><h2>MS Polarlys arriving</h2><p>Hurtigruten, Tromsø</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/06.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/06.jpg" alt="MS Polarlys" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">06</div><h2>MS Polarlys</h2><p>Hurtigruten, Tromsø</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/07.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/07.jpg" alt="Tromsø Bridge and the Arctic Cathedral" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">07</div><h2>The bridge to Ishavskatedralen</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/14.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/14.jpg" alt="Arctic Cathedral" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">08</div><h2>Ishavskatedralen</h2><p>Arctic Cathedral, Tromsø</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/08.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/08.jpg" alt="View from Fløya" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">09</div><h2>View from Fløya</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/09.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/09.jpg" alt="View from Fløya" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">10</div><h2>View from Fløya</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/10.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/10.jpg" alt="View from Fløya" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">11</div><h2>View from Fløya</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/11.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/11.jpg" alt="View from Fløya" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">12</div><h2>View from Fløya</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/12.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/12.jpg" alt="Cairn on Fløya" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">13</div><h2>Summit cairn</h2><p>Fløya, Tromsø</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/13.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/13.jpg" alt="Trail rest stop on Fløya" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">14</div><h2>Trail rest stop</h2><p>Fløya, Tromsø</p></div>
+        </a>
+
+        <a class="shot" href="img/norway/15.jpg" target="_blank" rel="noopener">
+          <img src="img/norway/thumbs/15.jpg" alt="Kayak launch on the fjord" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">15</div><h2>Kayak launch</h2><p>Tromsø, Norway</p></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
