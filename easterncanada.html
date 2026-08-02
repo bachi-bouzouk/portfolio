@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="easterncanada" />
-	<meta name="author" content="bachi-bouzouk" />
-	<title>Eastern Canada</title>
-	<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-	<!-- css header video-->
-	<link rel="stylesheet" href="css/header-resume.css">
-
-	<!-- Core theme CSS (includes Bootstrap)-->
-	<link href="css/styles.css" rel="stylesheet" />
-
-	<noscript>
-		<link rel="stylesheet" href="css/noscript.css" /></noscript>
-
-	<!-- Google fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-
-	<!-- Font Awesome icons (free version)-->
-	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eastern Canada — Abdel-Malek Imokrane</title>
+<meta name="description" content="Eastern Canada photo gallery — in progress." />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/control-loop.css" />
+<style>
+  .stub-wrap { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(48px, 8vw, 88px) 0; }
+  .stub-cover { width: 100%; max-width: 520px; aspect-ratio: 3/2; object-fit: cover; border: 1px solid var(--line); filter: grayscale(0.85) brightness(0.6); margin-bottom: 32px; }
+  .stub-title { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 16px; }
+  .stub-note { font-family: 'Plex', sans-serif; color: var(--ink-dim); max-width: 56ch; font-size: 1.02rem; }
+  .stub-status { font-family: 'Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; display: inline-block; margin-top: 20px; }
+</style>
 </head>
-
-<!-- Header-->
-<header id="page-top">
-	<div class="overlay"></div>
-	<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-		<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
-	</video>
-	<div class="container h-100">
-		<div class="d-flex h-100 text-center align-items-center">
-			<div class="w-100 text-white">
-				<p class="display-3"></p>
-			</div>
-		</div>
-	</div>
-</header>
-
 <body>
+
+<nav class="nav">
+  <a class="nav-id" href="index.html">AMI<span>_</span>CTRL</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="catalog.html" aria-current="page">Catalog</a></li>
+    <li><a href="socialmedia.html">Social</a></li>
+    <li><a href="mailto:malek.imokrane@gmail.com">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+</nav>
+
+<main>
+  <div class="wrap stub-wrap reveal">
+    <div class="eyebrow">CH.04 — Photo Catalog</div>
+    <img class="stub-cover" src="img/mtl.jpg" alt="Eastern Canada" />
+    <h1 class="stub-title">Eastern Canada</h1>
+    <p class="stub-note">Québec &amp; the Maritimes. This gallery hasn't been put together yet — the photo above is the only thing logged so far.</p>
+    <span class="stub-status">Coming soon</span>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 ABDEL-MALEK IMOKRANE</div>
+    <ul class="foot-links">
+      <li><a href="catalog.html">Back to Catalog</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/control-loop.js"></script>
 </body>
-
-	<!-- Bootstrap core JS-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-	<!-- Third party plugin JS-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
-
-</body>
-
 </html>
