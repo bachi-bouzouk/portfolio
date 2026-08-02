@@ -1,285 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="webresume" />
-  <meta name="author" content="bachi-bouzouk" />
-  <title>Web Resume</title>
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-  <!-- Font Awesome icons (free version)-->
-  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-  <!-- in your header -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css">
-  <!-- Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="css/styles-resume.css" rel="stylesheet" />
-  <!-- Core theme CSS for resume page-->
-  <link rel="stylesheet" href="css/header-resume.css">
-  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-</head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume — Abdel-Malek Imokrane</title>
+<meta name="description" content="Resume — embedded systems, power electronics and control command engineer." />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/control-loop.css" />
+<style>
+  .page-head { padding-top: clamp(48px, 8vw, 88px); display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 4vw, 44px); align-items: center; }
+  .profile-photo { width: 132px; height: 132px; object-fit: cover; border: 1px solid var(--line); position: relative; }
+  .profile-photo-wrap { position: relative; flex-shrink: 0; }
+  .page-title { font-size: clamp(2.4rem, 6vw, 4rem); margin: 10px 0 12px; }
+  .page-sub { font-family: 'Plex Mono', monospace; font-size: 13px; color: var(--ink-dim); letter-spacing: 0.02em; }
+  .page-sub a { color: var(--accent); text-decoration: none; }
+  .page-sub a:hover { text-decoration: underline; }
+  .lead-copy { font-family: 'Plex', sans-serif; font-size: 1.02rem; color: var(--ink-dim); max-width: 68ch; margin: 22px 0 0; }
 
-<header id="page-top">
-  <div class="overlay"></div>
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="mp4/bg.mp4" type="video/mp4">
-  </video>
-  <div class="container h-100">
-    <div class="d-flex h-100 text-center align-items-center">
-      <div class="w-100 text-white">
-        <p class="display-3"></p>
-      </div>
-    </div>
+  .field-list { border-top: 1px solid var(--line); }
+  .field-item { padding: 32px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; align-items: baseline; }
+  .field-role { font-size: 1.2rem; font-weight: 500; font-family: 'Plex', sans-serif; margin: 0 0 4px; }
+  .field-co { font-family: 'Plex Mono', monospace; font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field-date { font-family: 'Plex Mono', monospace; font-size: 12px; color: var(--trace); white-space: nowrap; }
+  .field-summary { grid-column: 1 / -1; color: var(--ink-dim); font-size: 0.96rem; margin: 14px 0 0; max-width: 68ch; }
+  .field-bullets { grid-column: 1 / -1; margin: 10px 0 0; padding-left: 18px; color: var(--ink-dim); font-size: 0.95rem; }
+  .field-bullets li + li { margin-top: 5px; }
+
+  .mission { grid-column: 1 / -1; border-left: 2px solid var(--line); padding: 4px 0 4px 18px; margin-top: 18px; }
+  .mission-head { display: flex; align-items: center; gap: 10px; font-family: 'Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+  .mission-tag { color: var(--accent); }
+  .mission-current { border: 1px solid var(--accent); color: var(--accent); font-size: 9.5px; padding: 1px 6px; letter-spacing: 0.08em; }
+  .mission ul { margin: 8px 0 0; padding-left: 18px; color: var(--ink-dim); font-size: 0.93rem; }
+  .mission ul li + li { margin-top: 4px; }
+  .mission + .mission { margin-top: 20px; }
+
+  .skill-tags { list-style: none; margin: 12px 0 28px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tags li { font-family: 'Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: var(--ink-dim); border: 1px solid var(--line); padding: 5px 10px; text-transform: uppercase; }
+  .skill-group-label { font-family: 'Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--trace); margin: 0 0 4px; }
+
+  .check-list { list-style: none; margin: 0; padding: 0; }
+  .check-list li { position: relative; padding-left: 22px; color: var(--ink-dim); font-size: 0.96rem; }
+  .check-list li + li { margin-top: 8px; }
+  .check-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+
+  .edu-item { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; }
+  .edu-list { border-top: 1px solid var(--line); }
+  .edu-role { font-size: 1.05rem; font-weight: 500; font-family: 'Plex', sans-serif; margin: 0; }
+  .edu-sub { font-family: 'Plex Mono', monospace; font-size: 11.5px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 3px; }
+  .edu-note { grid-column: 1 / -1; color: var(--ink-dim); font-size: 0.9rem; margin: 4px 0 0; }
+  .edu-date { font-family: 'Plex Mono', monospace; font-size: 12px; color: var(--trace); white-space: nowrap; }
+
+  @media (max-width: 640px) {
+    .page-head { grid-template-columns: 1fr; }
+    .field-item, .edu-item { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-id" href="index.html">AMI<span>_</span>CTRL</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resume.html" aria-current="page">Resume</a></li>
+    <li><a href="catalog.html">Catalog</a></li>
+    <li><a href="socialmedia.html">Social</a></li>
+    <li><a href="mailto:malek.imokrane@gmail.com">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+</nav>
+
+<header class="wrap page-head reveal">
+  <div class="profile-photo-wrap panel">
+    <span class="tick-bl"></span><span class="tick-br"></span>
+    <img class="profile-photo" src="img/profile.jpg" alt="Abdel-Malek Imokrane" />
+  </div>
+  <div>
+    <div class="eyebrow">Field Log</div>
+    <h1 class="page-title">Abdel-Malek Imokrane</h1>
+    <div class="page-sub">Vanves, 92170, France · (+33) 6 64 64 37 22 · <a href="mailto:malek.imokrane@gmail.com">malek.imokrane@gmail.com</a></div>
+    <p class="lead-copy">As an embedded system/software engineer, I was involved in the design of the most robust control commands in the energy and automobile industries. I'm driven by contributing to the development of the most efficient and smart systems, ensuring and maintaining best practices. I thrive in rapidly growing, innovative organisations and agile collaborative environments.</p>
   </div>
 </header>
 
-<!-- About-->
-<section class="my-5" id="about">
-  <div class="container">
-    <div class="resume-section-content">
-      <h1 class="mb-0">Abdel-Malek <span class="text-primary">Imokrane</span></h1>
-      <div class="subheading mb-5">Vanves, 92170, France· (+33) 6 64 64 37 22 · <a href="mailto:malek.imokrane@gmail.com">malek.imokrane@gmail.com</a></div>
-      <p class="lead mb-5">As an embedded system/software engineer, I was involved in the design of the most robust control commands in the energy and automobile indutries.
-        I'm driven by contributing to the development of the most efficient and smart systems ensuring and maintaining best practices.
-        I thrive in rapidly growing, innovative organisations and agile collaborative environments. </p>
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="malekimokrane" target="_blank">
-                <a class="LI-simple-link" href='https://fr.linkedin.com/in/malekimokrane/en-us?trk=profile-badge'>Abdel-Malek Imokrane</a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="row"><p></p></div>
-              <div class"row" class="social-icons">
-                <a class="social-icon" href="https://github.com/bachi-bouzouk?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
-              </div>
-              <p></p>
-              <div class"row" class="social-icons">
-                <a class="social-icon" href="https://www.instagram.com/malek_ptilu/" target="_blank"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
+<main>
+
+  <section id="experience">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 — Experience</div>
+          <h2 style="margin-top:14px;">Field log</h2>
+        </div>
+        <div class="section-note">Four roles, one thread: measure, model, control.</div>
+      </div>
+
+      <div class="field-list">
+
+        <div class="field-item">
+          <div>
+            <div class="field-role">Senior Embedded Systems Engineer</div>
+            <div class="field-co">Expleo</div>
           </div>
+          <div class="field-date">Feb 2021 — Present</div>
+          <p class="field-summary">Successive client missions in hydrogen propulsion and electrical architecture, run through Expleo's R&amp;D and consulting practice.</p>
+
+          <div class="mission">
+            <div class="mission-head"><span class="mission-tag">KNDS</span><span class="mission-current">Current</span></div>
+            <ul>
+              <li>Designed and justified electrical architecture solutions, with comparative concept analysis to meet safety and availability requirements.</li>
+              <li>Specified electrical equipment and architecture interfaces with energy management functions.</li>
+            </ul>
+          </div>
+
+          <div class="mission">
+            <div class="mission-head"><span class="mission-tag">Symbio</span></div>
+            <ul>
+              <li>Architected and developed control command / diagnostics / maintenance and software safety functions for the fuel-cell product platform (Simulink/Stateflow).</li>
+              <li>Validated software functions through to system test benches (Simulink/SpeedGoat).</li>
+            </ul>
+          </div>
+
+          <div class="mission">
+            <div class="mission-head"><span class="mission-tag">Airbus UpNext</span></div>
+            <ul>
+              <li>Designed a Simulink multiphysics simulation platform (MIL) for the hydrogen propulsion chain (ZEROe project).</li>
+            </ul>
+          </div>
+
+          <div class="mission">
+            <div class="mission-head"><span class="mission-tag">R&amp;D Expleo</span></div>
+            <ul>
+              <li>Led a team of engineers on R&amp;D systems and software activities (H2 fuel cell, hydrogen mobility): planning, task allocation, technical-issue tracking, Agile follow-up.</li>
+              <li>Specified the functional architecture in Capella and supervised development, verification and testing.</li>
+              <li>Built multiphysics models in Simulink of the fuel cell's H2, O2 and thermal circuits, developing the associated control laws (energy-flow management, regulation).</li>
+              <li>Developed a HIL digital test bench (dSpace, Raspberry Pi) to validate models and closed-loop control laws.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="field-item">
+          <div>
+            <div class="field-role">Embedded Software Engineer</div>
+            <div class="field-co">Serma Ingénierie — Guyancourt, France</div>
+          </div>
+          <div class="field-date">Nov 2018 — Feb 2021</div>
+          <p class="field-summary">Developing robust and efficient software for hybrid and electric vehicles, for Renault.</p>
+          <ul class="field-bullets">
+            <li>Led MBD development and testing phases.</li>
+            <li>Led the agile working environment in the team.</li>
+            <li>Developed new control algorithms for the Euro7 automotive standard.</li>
+            <li>Ensured all parties' awareness of team feature development.</li>
+            <li>Set up the AUTOSAR development process, its versioning, and continuous development and integration.</li>
+            <li>Architecture and requirements review.</li>
+          </ul>
+        </div>
+
+        <div class="field-item">
+          <div>
+            <div class="field-role">Inverter Control Engineer</div>
+            <div class="field-co">Schneider Electric — Burnaby, BC, Canada</div>
+          </div>
+          <div class="field-date">Sep 2016 — Sep 2018</div>
+          <p class="field-summary">Within the solar business — developed the control command of a high-power inverter (2.4 MVA / 2.2 MW).</p>
+          <ul class="field-bullets">
+            <li>Research, development and test of power regulation and grid-support features.</li>
+            <li>Created feature and software requirements.</li>
+            <li>Elaborated validation plans for MIL / SIL / HIL platforms.</li>
+            <li>Ensured systems integration and configuration.</li>
+            <li>Continuous improvement from customer feedback.</li>
+          </ul>
+        </div>
+
+        <div class="field-item">
+          <div>
+            <div class="field-role">Electrical Grid Control Command Research Engineer</div>
+            <div class="field-co">GREPCI — Montréal, QC, Canada</div>
+          </div>
+          <div class="field-date">Jun 2013 — Dec 2015</div>
+          <p class="field-summary">Contributed to simulation tools for designing, planning and operating electric grids, and developed control methods to balance production and consumption of energy.</p>
+          <ul class="field-bullets">
+            <li>Modelled an electrical grid / microgrid composed of renewable energies and energy storage.</li>
+            <li>Simulated energy distribution, demand response and dispatch.</li>
+            <li>Islanded and grid-connected operation of the microgrid.</li>
+            <li>Simulated droop control adapted to power sources and electrical distribution.</li>
+            <li>Designed control command for parallel Li-ion battery systems.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 — Education</div>
+          <h2 style="margin-top:14px;">Training</h2>
+        </div>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div>
+            <div class="edu-role">ÉTS Montréal University</div>
+            <div class="edu-sub">M.A.Sc — Electrical Engineering</div>
+          </div>
+          <div class="edu-date">Sep 2013 — Sep 2015</div>
+          <p class="edu-note">Member of the "TransÉnergie — HydroQuébec" chair in power electronics and industrial commands. GPA: 3.4</p>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-role">ESME Sudria</div>
+            <div class="edu-sub">Electrical Energy &amp; Computer Science</div>
+          </div>
+          <div class="edu-date">Sep 2009 — Jun 2013</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-role">Shanghai Jiao Tong University</div>
+            <div class="edu-sub">Embedded Electronics &amp; Computer Science</div>
+          </div>
+          <div class="edu-date">Feb 2012 — Jun 2012</div>
+          <p class="edu-note">Exchange program for bachelor degree.</p>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-role">Michelet High School</div>
+            <div class="edu-sub">High School Diploma</div>
+          </div>
+          <div class="edu-date">Jul 2009</div>
         </div>
       </div>
     </div>
-</section>
+  </section>
 
-<body>
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">Abdel-Malek Imokrane</span>
-      <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="./img/profile.jpg" alt="" />
-      </span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experiences</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+  <section id="skills">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">03 — Skills</div>
+          <h2 style="margin-top:14px;">Tooling &amp; process</h2>
+        </div>
+      </div>
+      <div class="panel" style="position:relative;">
+        <span class="tick-bl"></span><span class="tick-br"></span>
+        <div class="skill-group-label">Programming languages &amp; tools</div>
+        <ul class="skill-tags">
+          <li>MATLAB</li><li>Simulink</li><li>Stateflow</li><li>Capella</li><li>MagicDraw</li><li>dSpace</li><li>SpeedGoat</li>
+        </ul>
+        <div class="skill-group-label">Workflow &amp; process</div>
+        <ul class="check-list">
+          <li>Agile Development / Scrum / Kanban</li>
+          <li>Verification and Validation process</li>
+          <li>Cross-functional teams</li>
+          <li>DevOps tools and processes</li>
+          <li>ASPICE, MBSE, AUTOSAR</li>
+          <li>Continuous Development &amp; Integration</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">04 — Interests</div>
+          <h2 style="margin-top:14px;">Off the clock</h2>
+        </div>
+      </div>
+      <ul class="skill-tags" style="margin-bottom:0;">
+        <li>Running</li><li>Hiking</li><li>Mountains</li><li>Photography</li>
       </ul>
     </div>
-  </nav>
-  <!-- Page Content-->
-  <div class="container-fluid p-0">
-    <!-- Experience-->
-    <section class="resume-section" id="experience">
-      <div class="resume-section-content">
-        <h2 class="mb-5">Experiences</h2>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Embedded Software Engineer</h3>
-            <div class="subheading mb-3">Serma Ingénierie - Guyancourt, France</div>
-            <p>Developping robust and efficient software for hybrid and electrical vehicules for Renault.
-            <p> My realizations:
-            <li>Leading MBD Development and testing phases.</li>
-            <li>Leading the agile working environment in the team.</li>
-            <li>Developed new algorithms for new automobile standand 'Euro7'.</li>
-            <li>Ensure all parties awarness on the team features development.</li>
-            <li>Setting up the development process for AUTOSAR software, its versioning, continous development and integration. </li>
-            <li>Architecture and requirements review. </li>
-            </p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">November 2018 - Present</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Inverter Control Engineer</h3>
-            <div class="subheading mb-3">Schneider Electric - Burnaby, BC, Canada</div>
-            <p>
-              Within the solar business. I developed the control command of an high power inverter (2.4 MVA / 2.2 MW).
-            </p>
-            <p> My realizations:
-            <li>Research, development and test of power regulation and grid support features.</li>
-            <li>Create features/software requirements.</li>
-            <li>Elaborate validation plans for MIL/SIL/HIL platforms.</li>
-            <li>Ensure systems integration and their configuration.</li>
-            <li>Continous improvement from customers feedback.</li>
-            </p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">September 2016 - September 2018</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Electrical Grid Control Command research Engineer</h3>
-            <div class="subheading mb-3">GREPCI - Montreal, QC, Canada</div>
-            <p>
-              I contributed into the development of simulation tools required for designing, planning and operating electric grids.
-              I developed innovative control methods allowing the control of various instability phenomena and to balance production and conusumation of energy.
-            </p>
-            <p> My realizations:
-              <li>Modeling an electrical grid / Microgrid composed of renewable energies and energy storages.</li>
-              <li>Simulation of energy distribution. Demand response and dispatch .</li>
-              <li>Islanded and grid connected operation of the microgrid.</li>
-              <li>Simulation of the droop control adapted to power sources and electrical distribution.</li>
-              <li>Design control command for paralel Li-ion battery systems.</li>
-            </p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">June 2013 - December 2015</span></div>
-        </div>
-      </div>
-    </section>
-    <hr class="m-0" />
-    <!-- Education-->
-    <section class="resume-section" id="education">
-      <div class="resume-section-content">
-        <h2 class="mb-5">Education</h2>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">ETS Montreal University</h3>
-            <div class="subheading mb-3">Master in Applied Sciences in Electrical Engineering</div>
-            <p>Member of the chair 'TransEnergie - HydroQuébec' in power electronics and industrial commands</p>
-            <p>GPA: 3.4</p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">September 2013 - September 2015</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">ESME Sudria</h3>
-            <div class="subheading mb-3">Electrical Energy & Computer Science</div>
-            <p></p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">September 2009 - June 2013</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Shanghai Jiao Tong University</h3>
-            <div class="subheading mb-3">Embedded electronics and Computer Science</div>
-            <p>Exchange program for bachelor degree </p>
-            <p></p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">February 2012 - June 2012</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Michelet High School</h3>
-            <div class="subheading mb-3">High School diploma</div>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">July 2009</span></div>
-        </div>
-      </div>
-    </section>
-    <hr class="m-0" />
-    <!-- Skills-->
-    <section class="resume-section" id="skills">
-      <div class="resume-section-content">
-        <h2 class="mb-5">Skills</h2>
-        <div class="subheading mb-3">Programming Languages & Tools</div>
-        <p> MATLAB, SIMULINK, Capella, MagicDraw</p>
-        <ul class="list-inline dev-icons">
-          <li class="list-inline-item"><i class="fab fa-linux"></i></li>
-          <li class="list-inline-item"><i class="fab fa-jenkins"></i></li>
-          <li class="list-inline-item"><i class="fab fa-jira"></i></li>
-        </ul>
-        <ul class="list-inline dev-icons">
-          <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-          <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-          <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-          <li class="list-inline-item"><i class="devicon-c-plain"></i>
-          <li class="list-inline-item"><i class="devicon-cplusplus-plain"></i>
-        </ul>
-        <ul class="list-inline dev-icons">
-          <li class="list-inline-item"><i class="fab fa-confluence"></i></li>
-          <li class="list-inline-item"><i class="fab fa-python"></i></li>
-          <li class="list-inline-item"><i class="fab fa-git"></i></li>
-          <li class="list-inline-item"><i class="fab fa-gitlab"></i></li>
-          <li class="list-inline-item"><i class="devicon-visualstudio-plain"></i>
+  </section>
 
-        </ul>
-        <div class="subheading mb-3">Workflow</div>
-        <ul class="fa-ul mb-0">
-          <li>
-            <span class="fa-li"><i class="fas fa-check"></i></span>Agile Development / Scrum / Kanban
-          </li>
-          <li>
-            <span class="fa-li"><i class="fas fa-check"></i></span>Verification and Validation process
-          </li>
-          <li>
-            <span class="fa-li"><i class="fas fa-check"></i></span>Cross Functional Teams
-          </li>
-          <li>
-            <span class="fa-li"><i class="fas fa-check"></i></span>DevOps tools and processes
-          </li>
-          <li>
-            <span class="fa-li"><i class="fas fa-check"></i></span>ASPICE, MBSE, AUTOSAR
-          </li>
-          <li>
-            <span class="fa-li"><i class="fas fa-check"></i></span>Continous Development & Integration
-          </li>
-        </ul>
+  <section id="awards">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">05 — Awards</div>
+          <h2 style="margin-top:14px;">Recognition</h2>
+        </div>
       </div>
-    </section>
-    <hr class="m-0" />
-    <!-- Interests-->
-    <section class="resume-section" id="interests">
-      <div class="resume-section-content">
-        <h2 class="mb-5">Interests</h2>
-        <div class="row">
-          <div class="col"><i class="fas fa-running fa-5x"></i></div>
-          <div class="col"><i class="fas fa-hiking  fa-5x"></i></div>
-          <div class="col"><i class="fas fa-mountain fa-5x"></i></div>
-          <div class="col"><i class="fas fa-camera fa-5x"></i></div>
-      </div>
-      </div>
-    </section>
-    <hr class="m-0" />
-    <!-- Awards-->
-    <section class="resume-section" id="awards">
-      <div class="resume-section-content">
-        <h2 class="mb-5">Awards & Certifications</h2>
-        <ul class="fa-ul mb-0">
-          <li>
-            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Prix <a href="https://www.etsmtl.ca/Activites-et-services-aux-etudiants/Vie-etudiante/Genieplus" target="_blank">Génie+</a> de l’ÉTS pour l’engagement des étudiants
-          </li>
-          <li>
-            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Lauréat <a href="https://www.forcesavenir.qc.ca/index.html" target="_blank">Forces Avenir</a>, catégorie Avenir société, communication et éducation
-          </li>
-          <li>
-            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>1<sup>st </sup>Membre bronze du programme de service et de leadership de la communauté <a href="https://enactus.ca/fr/" target="_blank">Énactus</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <hr class="m-0" />
+      <ul class="check-list">
+        <li>Prix <a href="https://www.etsmtl.ca/Activites-et-services-aux-etudiants/Vie-etudiante/Genieplus" target="_blank" rel="noopener">Génie+</a> de l'ÉTS pour l'engagement des étudiants</li>
+        <li>Lauréat <a href="https://www.forcesavenir.qc.ca/index.html" target="_blank" rel="noopener">Forces Avenir</a>, catégorie Avenir société, communication et éducation</li>
+        <li>1ᵉʳ Membre bronze du programme de service et de leadership de la communauté <a href="https://enactus.ca/fr/" target="_blank" rel="noopener">Énactus</a></li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 ABDEL-MALEK IMOKRANE</div>
+    <ul class="foot-links">
+      <li><a href="https://www.linkedin.com/in/malekimokrane/">LinkedIn</a></li>
+      <li><a href="https://github.com/bachi-bouzouk?tab=repositories">GitHub</a></li>
+      <li><a href="https://www.instagram.com/malek_ptilu/">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/control-loop.js"></script>
 </body>
-
 </html>
