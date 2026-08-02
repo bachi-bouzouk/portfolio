@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="bachi-bouzouk">
-
-  <title>Greenland - Start Bootstrap Theme</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Greenland — Abdel-Malek Imokrane</title>
+<meta name="description" content="Greenland photo gallery — in progress." />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/control-loop.css" />
+<style>
+  .stub-wrap { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(48px, 8vw, 88px) 0; }
+  .stub-cover { width: 100%; max-width: 520px; aspect-ratio: 3/2; object-fit: cover; border: 1px solid var(--line); filter: grayscale(0.85) brightness(0.6); margin-bottom: 32px; }
+  .stub-title { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 16px; }
+  .stub-note { font-family: 'Plex', sans-serif; color: var(--ink-dim); max-width: 56ch; font-size: 1.02rem; }
+  .stub-status { font-family: 'Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; display: inline-block; margin-top: 20px; }
+</style>
 </head>
-
 <body>
 
+<nav class="nav">
+  <a class="nav-id" href="index.html">AMI<span>_</span>CTRL</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="catalog.html" aria-current="page">Catalog</a></li>
+    <li><a href="socialmedia.html">Social</a></li>
+    <li><a href="mailto:malek.imokrane@gmail.com">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+</nav>
 
+<main>
+  <div class="wrap stub-wrap reveal">
+    <div class="eyebrow">CH.05 — Photo Catalog</div>
+    <img class="stub-cover" src="img/greenland.jpg" alt="Greenland" />
+    <h1 class="stub-title">Greenland</h1>
+    <p class="stub-note">Arctic ice sheet. This gallery hasn't been put together yet — the photo above is the only thing logged so far.</p>
+    <span class="stub-status">Coming soon</span>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 ABDEL-MALEK IMOKRANE</div>
+    <ul class="foot-links">
+      <li><a href="catalog.html">Back to Catalog</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/control-loop.js"></script>
 </body>
-
 </html>
