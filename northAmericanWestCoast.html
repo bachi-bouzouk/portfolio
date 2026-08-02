@@ -1,92 +1,116 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Lens by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload-0 is-preload-1 is-preload-2">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>US West Coast — Abdel-Malek Imokrane</title>
+<meta name="description" content="Nine stops from British Columbia to California." />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/control-loop.css" />
+<style>
+  .page-head { padding-top: clamp(48px, 8vw, 88px); }
+  .page-title { font-size: clamp(2.4rem, 7vw, 4.6rem); margin: 14px 0 18px; }
+  .page-sub { font-family: 'Plex', sans-serif; color: var(--ink-dim); font-size: 1.05rem; max-width: 56ch; }
 
-		<!-- Main -->
-			<div id="main">
+  .shot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  a.shot { position: relative; display: block; text-decoration: none; color: var(--ink); background: var(--surface); aspect-ratio: 4/3; overflow: hidden; }
+  a.shot img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .5s ease; }
+  a.shot:hover img { transform: scale(1.05); }
+  a.shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,9,13,0.85) 0%, rgba(6,9,13,0.15) 45%, transparent 70%); }
+  .shot-meta { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px 18px 18px; }
+  .shot-ch { font-family: 'Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; color: var(--signal); }
+  .shot-meta h2 { color: #fff; font-size: 1.1rem; margin: 6px 0 0; text-transform: none; letter-spacing: 0; }
+  .shot-meta p { color: rgba(255,255,255,0.72); font-size: 0.82rem; margin: 2px 0 0; font-family: 'Plex Mono', monospace; }
 
-				<!-- Header -->
-					<header id="header">
-						<h1>Zoom on North America</h1>
-						<p>Four states across the north american shore. </a></p>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-					</header>
+  @media (max-width: 880px) { .shot-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .shot-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
 
-				<!-- Thumbnail -->
-					<section id="thumbnails">
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/01.jpg" data-position="left center"><img src="img/usa-westcoast/thumbs/01.jpg" alt="" /></a>
-							<h2>Mount Garibaldi</h2>
-							<p>BC, Canada</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/02.jpg"><img src="img/usa-westcoast/thumbs/02.jpg" alt="" /></a>
-							<h2>Stanley Park</h2>
-							<p>Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/03.jpg"><img src="img/usa-westcoast/thumbs/03.jpg" alt="" /></a>
-							<h2>Seattle</h2>
-							<p>Maecenas eleifend tellus ut turpis eleifend, vitae pretium faucibus.</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/04.jpg"><img src="img/usa-westcoast/thumbs/04.jpg" alt="" /></a>
-							<h2>Crater Lake</h2>
-							<p>Medford, OR, USA</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/05.jpg"><img src="img/usa-westcoast/thumbs/05.jpg" alt="" /></a>
-							<h2>SF</h2>
-							<p>In pellentesque cursus velit id posuere. Donec vehicula nulla.</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/06.jpg"><img src="img/usa-westcoast/thumbs/06.jpg" alt="" /></a>
-							<h2>Goldn Bridg, SF</h2>
-							<p>Nulla dignissim libero maximus tellus varius dictum ut posuere magna.</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/07.jpg"><img src="img/usa-westcoast/thumbs/07.jpg" alt="" /></a>
-							<h2>This is America</h2>
-							<p>Etiam ultricies, lorem quis efficitur porttitor, facilisis ante orci urna.</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/08.jpg"><img src="img/usa-westcoast/thumbs/08.jpg" alt="" /></a>
-							<h2>Alcatraz</h2>
-							<p>Nunc egestas congue lorem. Nullam dictum placerat ex sapien tortor mattis.</p>
-						</article>
-						<article>
-							<a class="thumbnail" href="img/usa-westcoast/09.jpg"><img src="img/usa-westcoast/thumbs/09.jpg" alt="" /></a>
-							<h2>Venice Beach</h2>
-							<p>In quis vulputate dui. Maecenas metus elit, dictum praesent lacinia lacus.</p>
-						</article>
-					</section>
+<nav class="nav">
+  <a class="nav-id" href="index.html">AMI<span>_</span>CTRL</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="catalog.html" aria-current="page">Catalog</a></li>
+    <li><a href="socialmedia.html">Social</a></li>
+    <li><a href="mailto:malek.imokrane@gmail.com">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+</nav>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; Imokrane - 2020.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
-						</ul>
-					</footer>
+<header class="wrap page-head reveal">
+  <div class="eyebrow">CH.01 — Photo Catalog</div>
+  <h1 class="page-title">US West Coast</h1>
+  <p class="page-sub">From B.C. to California — nine stops down the coast.</p>
+</header>
 
-			</div>
+<main>
+  <section>
+    <div class="wrap reveal">
+      <div class="shot-grid">
 
-		<!-- Scripts -->
-			<script src="js/jquery.min.js"></script>
-			<script src="js/browser.min.js"></script>
-			<script src="js/breakpoints.min.js"></script>
-			<script src="js/main.js"></script>
+        <a class="shot" href="img/usa-westcoast/01.JPG" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/01.jpg" alt="Mount Garibaldi, BC, Canada" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">01</div><h2>Mount Garibaldi</h2><p>BC, Canada</p></div>
+        </a>
 
-	</body>
+        <a class="shot" href="img/usa-westcoast/02.jpg" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/02.jpg" alt="Stanley Park" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">02</div><h2>Stanley Park</h2><p>Vancouver, BC</p></div>
+        </a>
+
+        <a class="shot" href="img/usa-westcoast/03.JPG" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/03.jpg" alt="Seattle" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">03</div><h2>Seattle</h2><p>WA, USA</p></div>
+        </a>
+
+        <a class="shot" href="img/usa-westcoast/04.JPG" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/04.jpg" alt="Crater Lake, Medford, OR, USA" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">04</div><h2>Crater Lake</h2><p>Medford, OR, USA</p></div>
+        </a>
+
+        <a class="shot" href="img/usa-westcoast/05.JPG" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/05.jpg" alt="San Francisco" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">05</div><h2>San Francisco</h2><p>CA, USA</p></div>
+        </a>
+
+        <a class="shot" href="img/usa-westcoast/06.JPG" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/06.jpg" alt="Golden Gate Bridge, San Francisco" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">06</div><h2>Golden Gate Bridge</h2><p>San Francisco, CA</p></div>
+        </a>
+
+        <a class="shot" href="img/usa-westcoast/07.JPG" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/07.jpg" alt="California" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">07</div><h2>This is America</h2><p>CA, USA</p></div>
+        </a>
+
+        <a class="shot" href="img/usa-westcoast/08.JPG" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/08.jpg" alt="Alcatraz" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">08</div><h2>Alcatraz</h2><p>San Francisco, CA</p></div>
+        </a>
+
+        <a class="shot" href="img/usa-westcoast/09.jpg" target="_blank" rel="noopener">
+          <img src="img/usa-westcoast/thumbs/09.jpg" alt="Venice Beach" loading="lazy" />
+          <div class="shot-meta"><div class="shot-ch">09</div><h2>Venice Beach</h2><p>Los Angeles, CA</p></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 ABDEL-MALEK IMOKRANE</div>
+    <ul class="foot-links">
+      <li><a href="catalog.html">Back to Catalog</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/control-loop.js"></script>
+</body>
 </html>

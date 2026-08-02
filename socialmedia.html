@@ -1,193 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="socialmedia" />
-	<meta name="author" content="bachi-bouzouk" />
-	<title>Social Media Connect</title>
-	<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-	<!-- css header video-->
-	<link rel="stylesheet" href="css/header-resume.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Social &amp; Music — Abdel-Malek Imokrane</title>
+<meta name="description" content="Currently on rotation on Spotify, and where to follow along elsewhere." />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/control-loop.css" />
+<style>
+  .page-head { padding-top: clamp(48px, 8vw, 88px); }
+  .page-title { font-size: clamp(2.4rem, 7vw, 4.6rem); margin: 14px 0 18px; }
+  .page-sub { font-family: 'Plex', sans-serif; color: var(--ink-dim); font-size: 1.05rem; max-width: 56ch; }
 
-	<!-- Core theme CSS (includes Bootstrap)-->
-	<link href="css/styles.css" rel="stylesheet" />
+  .playlists { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .playlist-panel { position: relative; }
+  .playlist-panel iframe { width: 100%; border: 0; display: block; border-radius: 2px; }
 
-	<noscript>
-		<link rel="stylesheet" href="css/noscript.css" /></noscript>
+  .follow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  a.follow-tile {
+    background: var(--surface); padding: 26px 24px; text-decoration: none; color: var(--ink);
+    display: flex; flex-direction: column; gap: 10px; transition: background .18s ease;
+  }
+  a.follow-tile:hover, a.follow-tile:focus-visible { background: var(--surface-2); outline: none; }
+  .follow-ch { font-family: 'Plex Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.08em; display: flex; justify-content: space-between; }
+  .follow-arrow { transition: transform .18s ease; }
+  a.follow-tile:hover .follow-arrow { transform: translate(3px,-3px); }
+  .follow-tile h3 { font-size: 1.15rem; margin: 0; text-transform: none; letter-spacing: 0; }
+  .follow-handle { font-family: 'Plex Mono', monospace; font-size: 12px; color: var(--ink-dim); }
 
-	<!-- Google fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-
-	<!-- Font Awesome icons (free version)-->
-	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-
+  @media (max-width: 720px) {
+    .playlists { grid-template-columns: 1fr; }
+    .follow-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
-
-<!-- Header-->
-<header id="page-top">
-	<div class="overlay"></div>
-	<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-		<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
-	</video>
-	<div class="container h-100">
-		<div class="d-flex h-100 text-center align-items-center">
-			<div class="w-100 text-white">
-				<p class="display-3"></p>
-			</div>
-		</div>
-	</div>
-</header>
-
 <body>
 
-	<!-- Spotify-->
-	<section>
-		<div class="container">
-			<div class="content-section-heading text-center">
-				<h1 class="text-secondary mb-0">Spotify</h1>
-				<p><br></p>
-				<h2 class="mb-5">
-					<iframe src="https://open.spotify.com/follow/1/?uri=spotify:user:224taj4a6os2ony2eezd4mwqa&size=detail&theme=light&show-count=0" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;"
-						allowtransparency="true">
-					</iframe>
-				</h2>
-			</div>
-			<div class="row no-gutters">
-				<div class="col-sm">
-					<iframe src="https://open.spotify.com/embed/playlist/6S4OvtuKrl4umsaNaTvoD0" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-				</div>
-				<div class="col-sm">
-					<iframe src="https://open.spotify.com/embed/playlist/3ALCYmeTrzZ0yiF113vm6f" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid p-0">
-	</section>
+<nav class="nav">
+  <a class="nav-id" href="index.html">AMI<span>_</span>CTRL</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="catalog.html">Catalog</a></li>
+    <li><a href="socialmedia.html" aria-current="page">Social</a></li>
+    <li><a href="mailto:malek.imokrane@gmail.com">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+</nav>
 
-  <!-- Spotify Web Playback -->
-	<section>
-		<div class="container">
-			<div id="login">
-				<h1>This is an example of the Authorization Code flow</h1>
-				<button class="btn btn-primary" id="login">Log in!</button>
-				<a href="/logout" class="btn btn-secondary">Logout</a>
-				<div id="data-container">
-				</div>
-			</div>
-		</div>
+<header class="wrap page-head reveal">
+  <div class="eyebrow">Live feed</div>
+  <h1 class="page-title">Social &amp; Music</h1>
+  <p class="page-sub">What's currently on rotation, and where to follow along elsewhere.</p>
+</header>
 
-		<h2>Spotify Web Playback SDK</h2>
-		<h3>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
-			// playback sdk start here
-			<!--
-			<script src="https://sdk.scdn.co/spotify-player.js"></script>
-			<script>
-				app.get('/login', function(req, res) {
-					var scopes = 'user-read-private user-read-email';
-					res.redirect('https://accounts.spotify.com/authorize' +
-						'?response_type=code' +
-						'&client_id=' + my_client_id +
-						(scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-						'&redirect_uri=' + encodeURIComponent(redirect_uri));
-				});
-				window.onSpotifyWebPlaybackSDKReady = () => {
-					const token = '';
-					const player = new Spotify.Player({
-						name: 'Abdel-Malek\'s website ',
-						getOAuthToken: cb => {
-							cb(token);
-						}
-					});
+<main>
 
-					// Error handling
-					player.addListener('initialization_error', ({
-						message
-					}) => {
-						console.error(message);
-					});
-					player.addListener('authentication_error', ({
-						message
-					}) => {
-						console.error(message);
-					});
-					player.addListener('account_error', ({
-						message
-					}) => {
-						console.error(message);
-					});
-					player.addListener('playback_error', ({
-						message
-					}) => {
-						console.error(message);
-					});
+  <section id="music">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 — Now Playing</div>
+          <h2 style="margin-top:14px;">On rotation</h2>
+        </div>
+        <div class="section-note">Two playlists, straight from Spotify — no login required.</div>
+      </div>
+      <div class="playlists">
+        <div class="panel playlist-panel">
+          <span class="tick-bl"></span><span class="tick-br"></span>
+          <iframe src="https://open.spotify.com/embed/playlist/6S4OvtuKrl4umsaNaTvoD0" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+        </div>
+        <div class="panel playlist-panel">
+          <span class="tick-bl"></span><span class="tick-br"></span>
+          <iframe src="https://open.spotify.com/embed/playlist/3ALCYmeTrzZ0yiF113vm6f" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-					// Playback status updates
-					player.addListener('player_state_changed', state => {
-						console.log(state);
-					});
+  <section id="follow">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 — Follow</div>
+          <h2 style="margin-top:14px;">Elsewhere</h2>
+        </div>
+      </div>
+      <div class="follow-grid">
+        <a class="follow-tile" href="https://www.instagram.com/malek_ptilu/">
+          <div class="follow-ch">INSTAGRAM <span class="follow-arrow">↗</span></div>
+          <h3>Instagram</h3>
+          <div class="follow-handle">@malek_ptilu</div>
+        </a>
+        <a class="follow-tile" href="https://www.linkedin.com/in/malekimokrane/">
+          <div class="follow-ch">LINKEDIN <span class="follow-arrow">↗</span></div>
+          <h3>LinkedIn</h3>
+          <div class="follow-handle">/in/malekimokrane</div>
+        </a>
+        <a class="follow-tile" href="https://github.com/bachi-bouzouk?tab=repositories">
+          <div class="follow-ch">GITHUB <span class="follow-arrow">↗</span></div>
+          <h3>GitHub</h3>
+          <div class="follow-handle">@bachi-bouzouk</div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-					// Ready
-					player.addListener('ready', ({
-						device_id
-					}) => {
-						console.log('Ready with Device ID', device_id);
-					});
+</main>
 
-					// Not Ready
-					player.addListener('not_ready', ({
-						device_id
-					}) => {
-						console.log('Device ID has gone offline', device_id);
-					});
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 ABDEL-MALEK IMOKRANE</div>
+    <ul class="foot-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="catalog.html">Catalog</a></li>
+    </ul>
+  </div>
+</footer>
 
-					// Connect to the player!
-					player.connect();
-				};
-			</script> -->
-	</section>
-
-
-	<!-- Instagram-->
-	<section>
-		<div class="container">
-			<div class="content-section-heading text-center">
-				<h1 class="text-secondary mb-0">Instagram</h1>
-				<p><br></p>
-				<h4 class="mb-5">
-					<div class="instagram_profile" style="text-align:center;"> <img class="instagram_profile_image"
-							img alt="Change Profile Photo" class="be6sR"
-							src="img/profile.jpg"
-							alt="instagram profile pic" style="border-radius:10em;width:15%;max-width:125px;min-width:50px;">
-						<p class="instagram_username" style="font-size:1.2em;"><a href="https://www.instagram.com/malek_ptilu/">@malek_ptilu</a></p>
-						<p class="instagram_biography" style="font-size:1em;"></p>
-					</div>
-				</h4>
-			</div>
-		</div>
-
-
-		<!-- integration 1 -->
-		<!-- third party plugin limited in view  - papaoutes -->
-		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-		<div class="elfsight-app-e1cc18a5-a3f1-4eab-a1d2-37e87b9c5bf6"></div>
-
-	</section>
-
-	<!-- Map -->
-
-
-	<!-- Bootstrap core JS-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-	<!-- Third party plugin JS-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-	<!-- Core theme JS-->
-	<!--<script src="js/scripts.js"></script>-->
-
+<script src="js/control-loop.js"></script>
 </body>
-
 </html>
